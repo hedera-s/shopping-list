@@ -41,23 +41,12 @@ class ShopingList {
 		this.list.forEach(
 		(el,i) => console.log(i + ": " + el.fooditem + " " + el.bought) 
 		);
-		console.log("..............");
+		
 	}
 	
 }
 
 
-let testList = new ShopingList();
 
-testList.add("Mehl");
-testList.add("Vodka");
-testList.add("Aepfel");
-testList.set(1,true);
-testList.testing();
-testList.clean();
 
-testList.testing();
-testList.delItem(0);
-
-testList.testing();
 

@@ -1,0 +1,144 @@
+<!doctype html>
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Caveat|Quattrocento" rel="stylesheet"> 
+		<style>
+			
+		
+            .checked {
+                color:darkseagreen;
+            }
+			
+			body {
+			 box-sizing: inherit;
+			background-color: #56718f;
+			color: #784b3a;
+			
+			
+			
+			}
+			
+			h1 {
+			font-family: 'Bangers', cursive;
+			font-size: 3em;
+			}
+			
+			#wraper {
+				background-image: url("pin.png");
+				background-repeat: no-repeat;
+				background-size: 80px;
+				 background-position: 20px 5px;
+				background-color: #ffefcc;
+				width: 80%;
+				max-width: 700px; 
+				margin: 50px auto;
+				text-align: center;
+				padding: 20px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+				
+			}
+			
+			.page {
+			background: -moz-linear-gradient(top,  #ffefcc 0%, #f5d58a 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffefcc), color-stop(100%,#f5d58a)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* IE10+ */
+			background: linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefcc', endColorstr='#f5d58a',GradientType=0 ); /* IE6-9 */
+			}
+			
+			.litItem {
+				width: 40%;
+				margin: 0 auto;
+				text-align: justify;
+				font-size: 1.8em;
+				font-family: 'Caveat', cursive;
+				
+			}
+			
+			#inputfield {
+				width: 80%;
+				height: 30px;
+				font-size: 1em;
+			}
+			button#add{
+				width: 10%;
+				min-width: 85px;
+				line-height: 30px;
+
+			}
+			
+			
+			input[type=checkbox] {
+
+			 -ms-transform: scale(1.4); /* IE */
+			 -moz-transform: scale(1.4); /* FF */
+			 -webkit-transform: scale(1.4); /* Safari and Chrome */
+			 -o-transform: scale(1.4); /* Opera */
+			 outline: none;
+			  
+			}
+
+			button#clean, button#del{
+					line-height: 30px;
+					width: 30%;
+			}
+			
+			button.kill {
+				width: 20px;
+				height: 20px;
+				background: #784b3a;
+				color: #fff;
+				border: 2px solid #784b3a;
+				border-radius: 50%;
+				position: relative;
+				
+				
+			}
+			button.kill span {
+				position: absolute;
+				left: 5px;
+				top: 0px
+			}
+		</style>
+		<title>Einkaufsliste</title>
+		
+		<script src="angular.js"></script>
+		<script src="interface.js" defer></script>
+		
+		
+		
+		<script>
+		
+		</script>
+		
+	</head>
+	
+	
+	<body ng-app="ShopingListApp" ng-controller="ctrl" ng-cloak>
+	<div id="wraper" class="page">
+		<h1>Lebensmittel zu kaufen:</h1>
+		
+		
+		
+		<input type="text" ng-model="newItem.text" id="inputfield" focus> <button ng-disabled="!newItem.text" ng-click="add()" id="add">Hinzufügen</button>
+		
+		
+		
+		<br><br>
+		
+		<div class="litItem" ng-repeat="i in myList" >
+		<input type="checkbox" ng-model="i.bought" ng-change="update($index)" class="checkbox">
+			{{i.fooditem}} 
+			<button ng-click="delItem($index)" class="kill"><span>X</span></button>
+		</div><br>
+		<button ng-click="clean()" id="clean">Gekauftes löschen</button>
+		<button ng-click="myList.delList()" id="del">Die Liste löschen</button> <br>
+		
+		
+		</div>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Caveat|Quattrocento" rel="stylesheet"> 
+		<style>
+			
+		
+            .checked {
+                color:darkseagreen;
+            }
+			
+			body {
+			 box-sizing: inherit;
+			background-color: #56718f;
+			color: #784b3a;
+			
+			
+			
+			}
+			
+			h1 {
+			font-family: 'Bangers', cursive;
+			font-size: 3em;
+			}
+			
+			#wraper {
+				background-image: url("pin.png");
+				background-repeat: no-repeat;
+				background-size: 80px;
+				 background-position: 20px 5px;
+				background-color: #ffefcc;
+				width: 80%;
+				max-width: 600px; 
+				margin: 100px auto;
+				text-align: center;
+				padding: 20px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+				
+			}
+			
+			.page {
+			background: -moz-linear-gradient(top,  #ffefcc 0%, #f5d58a 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffefcc), color-stop(100%,#f5d58a)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* IE10+ */
+			background: linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefcc', endColorstr='#f5d58a',GradientType=0 ); /* IE6-9 */
+			}
+			
+			
+			
+			.inputfield {
+				width: 70%;
+				height: 30px;
+				font-size: 1em;
+				margin: 10px;
+			}
+			#add{
+				width: 72%;
+				min-width: 85px;
+				line-height: 30px;
+				margin: 10px;
+
+			}
+			
+			
+			input[type=checkbox] {
+
+				 -ms-transform: scale(1.4); /* IE */
+				 -moz-transform: scale(1.4); /* FF */
+				 -webkit-transform: scale(1.4); /* Safari and Chrome */
+				 -o-transform: scale(1.4); /* Opera */
+				 outline: none;
+			  
+			}
+
+			
+			
+		</style>
+		<title>Einkaufsliste - Login</title>
+		
+		<script src="angular.js"></script>
+		<script src="interface.js" defer></script>
+		
+		
+		
+		<script>
+		
+		</script>
+		
+	</head>
+	
+	
+	<body ng-app="ShopingListApp" ng-controller="ctrl" ng-cloak>
+	
+	
+	<div id="wraper" class="page">
+	<form action="login", method="post">
+		<h1>Lebensmittel zu kaufen:</h1>
+		<p>Das ist eine Geheimnis-einkaufsliste, bitte, einloggen:</p>
+		<input type="text" class="inputfield" placeholder="Benutzername" name="username"> <br>
+		<input type="password" class="inputfield" placeholder="Passwort" name="password"> <br>
+		<input type="submit" value="Log in!" id="add">
+	</form>	
+		</div>
+	
+	</body>
+</html>

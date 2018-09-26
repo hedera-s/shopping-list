@@ -2,7 +2,7 @@
 Multiuser shopping list - learn project
 
 
-1. Es gibt schon 2 Benutzerkonten. Anmeldung mit Login-Passwort Paar.
+1. - Es gibt schon 2 Benutzerkonten. Anmeldung mit Login-Passwort Paar. -
 2. Ein Benutzer kann eine Einkaufsliste anlegen. Dafür gibt der Benutzer ein Lebensmittel in den Eingabefeld ein, druckt Enter, und das Lebensmittel wird zum Check-List Punkt.
 3. Ein Punkt kann man löschen. Dafür gibt es Buttons hinter jedem Punkt.
 4. Ein Benutzer, der ein Lebensmittel schon gekauft hat, checkt das im entschprechenden Checkbox, und der Punkt wird grau und "unavariable".

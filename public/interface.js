@@ -25,10 +25,7 @@ angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
 			data => $scope.myList = data.data.list,
 			data => console.log ( 'Fehler: '+ data )
 		);
-		/*
-		$scope.myList.delItem($scope.id);
-		$scope.myList.testing();
-		*/
+		
 	};
 	
 	$scope.update = i => {
@@ -36,6 +33,7 @@ angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
 			data => console.log(data),
 			data => console.log ("fehler " + data)
 		);
+		
 	};
 	
 	

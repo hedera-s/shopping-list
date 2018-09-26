@@ -11,7 +11,7 @@ let listModule = require("./listmodule.js")
 
 let myList = new listModule.ShopingList();
 myList.add("Äpfel");
-myList.add("Bannnnnanen");
+myList.add("Bananen");
 
 //alle Punkte
 server.get("/items", (req,res) => {

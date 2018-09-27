@@ -3,21 +3,18 @@
 "use strict";
 angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
 	
+	
+	
 	let refresh = () => {
 		$http.get("/items").then(
 			data => $scope.myList = data.data.list
 		);
 	};
 	
-	//$scope.myList = new ShopingList();
-	
 	$scope.add = () => {
 		$http.post("/items", $scope.newItem).then(
 			data => $scope.myList = data.data.list			
 		).then(()=> $scope.newItem.text = "");
-		
-		
-		
 	};
 	
 	$scope.delItem = (index) => {

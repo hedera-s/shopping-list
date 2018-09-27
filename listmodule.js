@@ -48,6 +48,7 @@ class ShopingList {
 	
 	
 	
+	
 }
 
 exports.ShopingList = ShopingList;

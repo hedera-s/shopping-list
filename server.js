@@ -1,5 +1,8 @@
 "use strict";
 
+//----------------- Server ----------------------------------
+//-----------------------------------------------------------
+
 let express = require("express");
 let cookieSession = require("cookie-session");
 let bodyparser = require("body-parser");
@@ -17,24 +20,28 @@ server.use(cookieSession({
 server.use(bodyparser.json());
 server.use(bodyparser.urlencoded({extended: false}));
 
-// login 
+// ----------------- Login ----------------------------------
+//-----------------------------------------------------------
+
+
 server.post("/login", (req,res) => {
 	let user = req.body.username,
 	pw = req.body.password;
-	if (user === "u1" && pw === "123") {
-	req.session.user = "u1";
-	res.redirect("/app.html");
-	} else if (user === "u2" && pw === "123") {
-		req.session.user = "u2";
-		res.redirect("/app.html");
+	if (user === "user1" && pw === "1234") {
+	req.session.user = "user1";
+	res.redirect("/app");
+	} else if (user === "user2" && pw === "1234") {
+		req.session.user = "user2";
+		res.redirect("/app");
 	} else {
+		
 		res.redirect("/");
+		
 	}
+	
 	console.log(req.session.user + " ist angemeldet");
 	
 });
-
-
 
 
 let checkAuth = (req,res,next) => {
@@ -44,7 +51,6 @@ let checkAuth = (req,res,next) => {
 		return next();
 	}
 };
-// 
 
 	
 	
@@ -52,9 +58,12 @@ server.get("/app", checkAuth, (req,res) => {
 	res.redirect("/app.html");
 	
 });
+// ----- Versuch die Seite "app.html" zu blokieren -------------
+//--------------------------------------------------------------
 
 server.get("/app.html",(req,res) => {
 	if(!req.session.user) {
+		res.redirect("/")
 		res.end();
 	}
 });
@@ -68,7 +77,7 @@ server.get("/logout", (req,res) => {
 
 
 
-
+// --------------------Die Liste -------------------------------
 
 
 let myList = new listModule.ShopingList();

@@ -135,16 +135,17 @@
 	
 	<body ng-app="ShopingListApp" ng-controller="ctrl" ng-cloak>
 	<div id="login">
-	Hallo {{user}} \
+	Hallo {{}} \
 	<a href="/logout">Abmelden</a>
 	</div>
 	<div class="page" id="wraper" >
 		<h1>Lebensmittel zu kaufen:</h1>
 		
 		
-		
-		<input type="text" ng-model="newItem.text" id="inputfield" focus> <button ng-disabled="!newItem.text" ng-click="add()" id="add">Hinzufügen</button>
-		
+		<form>
+		<input type="text" ng-model="newItem.text" id="inputfield" focus> 
+		<button ng-disabled="!newItem.text" ng-click="add()" id="add">Hinzufügen</button>
+		</form>
 		
 		
 		<br><br>

@@ -9,15 +9,10 @@ angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
 		);
 	};
 	
-	//$scope.myList = new ShopingList();
-	
 	$scope.add = () => {
 		$http.post("/items", $scope.newItem).then(
 			data => $scope.myList = data.data.list			
 		).then(()=> $scope.newItem.text = "");
-		
-		
-		
 	};
 	
 	$scope.delItem = (index) => {
@@ -45,7 +40,7 @@ angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
 	
 	refresh();
 	
-	
+	console.log($scope.username);
 	
 		
 });

@@ -2,7 +2,7 @@
 
 "use strict";
 angular.module("ShopingListApp", []).controller("ctrl", ($scope, $http) => {
-	
+	$scope.userName = userName;
 	
 	
 	let refresh = () => {

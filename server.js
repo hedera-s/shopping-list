@@ -39,18 +39,19 @@ server.use(bodyparser.urlencoded({extended: false}));
 //-----------------------------------------------------------
 
 let uniqueId;
+let userName;
 
 server.post("/", (req,res) => {
 	let user = req.body.username,
 	pw = req.body.password;
 	
-	if (user === "user1" && pw === "1234") {
-		req.session.user = "user1";
+	if (user === "Maria" && pw === "1234") {
+		req.session.user = "Maria";
 		res.redirect("/app");
 		uniqueId = uuid();
 		console.log(req.session.user + " ist angemeldet ID:" + uniqueId);
-	} else if (user === "user2" && pw === "1234") {
-		req.session.user = "user2";
+	} else if (user === "Max" && pw === "1234") {
+		req.session.user = "Max";
 		console.log(req.session.user + " ist angemeldet ID:" + uniqueId);
 		uniqueId = uuid();
 		res.redirect("/app");
@@ -59,7 +60,7 @@ server.post("/", (req,res) => {
 		console.log(req.session.user + " hat versucht anzumelden. ID:" + uniqueId);
 		res.redirect("/");
 	} 
-	
+	userName = user;
 	
 });
 
@@ -78,7 +79,7 @@ let checkAuth = (req,res,next) => {
 	
 	
 server.get("/app", checkAuth, (req,res) => {
-	res.render("app", {user: req.session.user});
+	res.render("app", {userName: userName});
 	
 });
 // ----- Versuch die Seite "app.html" zu blokieren -------------

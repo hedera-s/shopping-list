@@ -5,13 +5,7 @@
 
 let express = require("express");
 let cookieSession = require("cookie-session");
-let fs = require("fs");
 let uuid = require('uuid');
-let passport = require("passport");
-let Strategy = require("passport-local").Strategy;
-
-
-
 
 let bodyparser = require("body-parser");
 let listModule = require("./listmodule.js");
@@ -24,8 +18,6 @@ server.set("view engine", "jade");
 
 
 
-
-//--------------------------
 
 server.use(cookieSession({
 	name: "session",
@@ -52,8 +44,8 @@ server.post("/", (req,res) => {
 		console.log(req.session.user + " ist angemeldet ID:" + uniqueId);
 	} else if (user === "Max" && pw === "1234") {
 		req.session.user = "Max";
-		console.log(req.session.user + " ist angemeldet ID:" + uniqueId);
 		uniqueId = uuid();
+		console.log(req.session.user + " ist angemeldet ID:" + uniqueId);
 		res.redirect("/app");
 	} else {
 		//req.session.user = "anonym";
@@ -76,14 +68,11 @@ let checkAuth = (req,res,next) => {
 	}
 };
 
-	
-	
+
 server.get("/app", checkAuth, (req,res) => {
 	res.render("app", {userName: userName});
 	
 });
-// ----- Versuch die Seite "app.html" zu blokieren -------------
-//--------------------------------------------------------------
 
 
 
@@ -92,7 +81,6 @@ server.get("/logout", (req,res) => {
 	console.log(req.session.user + " ist abgemeldet. ID: " +uniqueId);
 	delete req.session.user;
 	uniqueId = undefined;
-	console.log(uniqueId);
 	res.redirect("/");
 })
 
@@ -107,6 +95,9 @@ server.get("/logout", (req,res) => {
 let myList = new listModule.ShopingList();
 myList.add("Äpfel");
 myList.add("Bananen");
+myList.add("Milch");
+myList.add("Käse");
+
 
 
 

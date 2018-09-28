@@ -12,7 +12,7 @@ head
       body {
       box-sizing: inherit;
       background-color: #56718f;
-      background-image: url(bg_2.jpg);
+      background-image: url(bg_2.jpg);background-size: cover;background-attachment:fixed;
       color: #784b3a;
       font-family: 'Krub', sans-serif;
       }
@@ -119,7 +119,7 @@ head
       br
       .litItem(ng-repeat='i in myList')
         input.checkbox(type='checkbox', ng-model='i.bought', ng-change='update($index)')
-        | &#x9;&#x9;&#x9;{{i.fooditem}} 
+        span &#x9;&#x9;&#x9;{{i.fooditem}} 
         | &#x9;&#x9;&#x9;
         button.kill(ng-click='delItem($index)')
           span X

@@ -1,0 +1,127 @@
+doctype html
+html
+head
+    meta(charset='UTF-8')
+    | &#x9;
+    link(href='https://fonts.googleapis.com/css?family=Cinzel|Caveat|Krub', rel='stylesheet')
+    |  
+    style.
+      .checked {
+      color:darkseagreen;
+      }
+      body {
+      box-sizing: inherit;
+      background-color: #56718f;
+      background-image: url(bg_2.jpg);background-size: cover;background-attachment:fixed;
+      color: #784b3a;
+      font-family: 'Krub', sans-serif;
+      }
+      h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.7em;
+      }
+      #login a:visited {
+      color: #ffefcc;
+      }
+      #login a:link {
+      color: #ffefcc;
+      }
+      #login {
+      color: #fff;
+      width: 18em;
+      height: 3em;
+      line-height: 3em;
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: center;
+      background-color: rgba(46, 19, 5, 0.8);
+      
+      }
+      #wraper {
+      background-color: #ffefcc;
+      width: 80%;
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+      }
+      .page {
+      background-image: url("pin.png");
+      background-repeat: no-repeat;
+      background-size: 80px;
+      background-position: 20px 5px;
+      background: -moz-linear-gradient(top,  #ffefcc 0%, #f5d58a 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffefcc), color-stop(100%,#f5d58a)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* IE10+ */
+      background: linear-gradient(top,  #ffefcc 0%,#f5d58a 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefcc', endColorstr='#f5d58a',GradientType=0 ); /* IE6-9 */
+      }
+      .litItem {
+      width: 40%;
+      margin: 0 auto;
+      text-align: justify;
+      font-size: 1.3em;
+      font-family: 'Krub', sans-serif;
+      padding: .3em;
+      }
+      #inputfield {
+      width: 80%;
+      height: 30px;
+      font-size: 1em;
+      }
+      button#add{
+      width: 10%;
+      min-width: 85px;
+      line-height: 30px;
+      }
+      input[type=checkbox] {
+      -ms-transform: scale(1.4); /* IE */
+      -moz-transform: scale(1.4); /* FF */
+      -webkit-transform: scale(1.4); /* Safari and Chrome */
+      -o-transform: scale(1.4); /* Opera */
+      outline: none;
+      }
+      button#clean, button#del{
+      line-height: 30px;
+      width: 30%;
+      }
+      button.kill {
+      width: 20px;
+      height: 20px;
+      background: #784b3a;
+      color: #fff;
+      border: 2px solid #784b3a;
+      border-radius: 50%;
+      position: relative;
+      }
+      button.kill span {
+      position: absolute;
+      left: 5px;
+      top: 0px
+      }
+    title Einkaufsliste
+    script(src='angular.js')
+    script(src='interface.js', defer='')
+    script let userName = !{JSON.stringify(userName)}
+  body(ng-app='ShopingListApp', ng-controller='ctrl')
+    #login(ng-init='userName=userName') Hallo 
+        | {{ userName }}!  |   
+        a(href='/logout') Abmelden
+    #wraper.page
+      h1 Lebensmittel zu kaufen:
+      form
+        input#inputfield(type='text', ng-model='newItem.text', focus='')
+        button#add(ng-disabled='!newItem.text', ng-click='add()') Hinzuf&uuml;gen
+      br
+      br
+      .litItem(ng-repeat='i in myList')
+        input.checkbox(type='checkbox', ng-model='i.bought', ng-change='update($index)')
+        span &#x9;&#x9;&#x9;{{i.fooditem}} 
+        | &#x9;&#x9;&#x9;
+        button.kill(ng-click='delItem($index)')
+          span X
+      br
+      button#clean(ng-click='clean()') Gekauftes l&ouml;schen

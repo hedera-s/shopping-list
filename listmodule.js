@@ -44,7 +44,7 @@ class ShopingList {
 		(el,i) => console.log(i + ": " + el.fooditem + " " + el.bought) 
 		);
 		console.log("....");
-	}
+	};
 	
 	
 	
